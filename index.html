@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Horario</title>
+	<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+<style type="text/css" media="screen">
+	.cd{
+		width: 10%;
+	}
+	
+	.tr:hover { 
+    background-color: #ccc;
+	}
+</style>
+<body>
+<h1 class="animated bounce" style="text-align: center;">Horario-ULA</h1>
+<div class="container">
+	<div class="row">
+		<table class="col s12">
+			<thead>
+				<tr>
+					<th class="cd">Facultad</th>
+					<th class="cd">Asignatura</th>
+					<th class="cd">Seccion</th>
+					<th class="cd">Profesor</th>
+					<th class="cd">Horas</th>
+					<th>Horario</th>
+					<th><p>
+      <input type="checkbox" class="filled-in" id="filled-in-box" checked="checked" disabled />
+      <label for="filled-in-box"></label>
+    </p></th>
+				</tr>
+			</thead>
+			<tbody id="tb">
+			
+			</tbody>
+		</table>
+	</div>
+	<div class="row">
+		<table class="col s12">
+			<thead>
+				<tr>
+					<th >Hora</th>
+					<th >LUNES</th>
+					<th >MARTES</th>
+					<th >MIERCOLES</th>
+					<th >JUEVES</th>
+					<th >VIERNES</th>
+					<th>SABADO</th>
+				</tr>
+			</thead>
+			<tbody id="tb">
+			<tr><td>7-8</td></tr>
+			<tr><td>8-9</td></tr>
+			<tr><td>9-10</td></tr>
+			<tr><td>10-11</td></tr>
+			<tr><td>11-12</td></tr>
+			<tr><td>12-1</td></tr>
+			<tr><td>1-2</td></tr>
+			<tr><td>2-3</td></tr>
+			<tr><td>3-4</td></tr>
+			<tr><td>4-5</td></tr>
+			<tr><td>5-6</td></tr>
+			
+			</tbody>
+		</table>
+	</div>
+</div>
+
+	<script src="js/jquery-3.1.1.min.js"></script>
+  <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+  <script src="js/index.js" ></script>
+</body>
+</html>
