@@ -3,10 +3,11 @@ var json = [
 	{
 		"id":"1",
 		"facultad": "ingenieria",
-		"asignatura": "1000-QUIMICA 11",
+		"asignatura": "QUIMICA 11",
+		"codigo":"1000",
 		"seccion": "01",
-		"profesor": "V008572366 LOPEZ MONTILLA JUAN CARLOS",
-		"horas": "7",
+		"profesor": "LOPEZ MONTILLA JUAN CARLOS V008572366",
+		"horas": "06",
 		"horario": [{"dia":"LUN","hora":"7-8","salon": "02_2O-06"},
 								{"dia":"LUN","hora":"8-9","salon": "02_2O-06"},
 								{"dia":"MAR","hora":"7-8","salon": "02_2O-06"},
@@ -17,25 +18,55 @@ var json = [
 	},{
 		"id":"2",
 		"facultad": "ingenieria",
-		"asignatura": "1000-Fisica 11",
-		"seccion": "01",
-		"profesor": "V008572366 LOPEZ MONTILLA JUAN CARLOS",
-		"horas": "7",
-		"horario": [{"dia":"LUN","hora":"7-8","salon": "02_2O-06"},{"dia":"MAR","hora":"7-8","salon": "02_2O-06"},{"dia":"VIE","hora":"7-8","salon": "02_2O-06"}],
+		"asignatura": "FISICA 11",
+		"codigo":"1000",
+		"seccion": "02",
+		"profesor": "BARRIOS RINCON NESTOR LUIS V003297821",
+		"horas": "06",
+		"horario":[
+								{"dia":"LUN","hora":"9-10","salon": "02_01_1N-07"},
+								{"dia":"LUN","hora":"10-11","salon": "02_01_1N-07"},
+								{"dia":"MIE","hora":"9-10","salon": "02_01_1N-07"},
+								{"dia":"MIE","hora":"10-11","salon": "02_01_1N-07"},
+								{"dia":"VIE","hora":"9-10","salon": "02_01_1N-07"},
+								{"dia":"VIE","hora":"10-11","salon": "02_01_1N-07"}
+						  ],
 	},{
 		"id":"3",
 		"facultad": "ingenieria",
-		"asignatura": "1000-Fisica 11",
-		"seccion": "01",
-		"profesor": "V008572366 LOPEZ MONTILLA JUAN CARLOS",
-		"horas": "7",
-		"horario": [{"dia":"LUN","hora":"7-8","salon": "02_2O-06"},{"dia":"MIE","hora":"7-8","salon": "02_2O-06"},{"dia":"JUE","hora":"7-8","salon": "02_2O-06"}],
+		"asignatura": "MECANICA 11",
+		"codigo":"1000",
+		"seccion": "03",
+		"profesor": "MONTEALEGRE ROGER ENRIQUE V008707975",
+		"horas": "06",
+		"horario":[
+								{"dia":"LUN","hora":"9-10","salon": "02_01_2N-02"},
+								{"dia":"LUN","hora":"10-11","salon": "02_01_2N-02"},
+								{"dia":"MAR","hora":"9-10","salon": "02_01_2N-02"},
+								{"dia":"MAR","hora":"10-11","salon": "02_01_2N-02"},
+								{"dia":"MIE","hora":"9-10","salon": "02_01_2O-01"},
+								{"dia":"MIE","hora":"10-11","salon": "02_01_2O-01"}
+						  ],
+	},{
+		"id":"4",
+		"facultad": "ingenieria",
+		"asignatura": "QUIMICA 11",
+		"codigo":"1000",
+		"seccion": "04",
+		"profesor": "QUIROZ CRISTHIAN V0018309045",
+		"horas": "06",
+		"horario":[
+								{"dia":"LUN","hora":"9-10","salon": "02_01_1N-10"},
+								{"dia":"LUN","hora":"10-11","salon": "02_01_1N-10"},
+								{"dia":"MAR","hora":"9-10","salon": "02_01_1N-10"},
+								{"dia":"MAR","hora":"10-11","salon": "02_01_1N-10"},
+								{"dia":"JUE","hora":"9-10","salon": "02_01_1N-10"},
+								{"dia":"JUE","hora":"10-11","salon": "02_01_1N-10"}
+						  ],
 	}
 ];
 
 $(document).ready(function(){
-
-
 
 	var $table = $('table'),
     $bodyCells = $table.find('tbody tr:first').children(),
@@ -47,11 +78,28 @@ colWidth = $bodyCells.map(function() {
 }).get();
 
 // Set the width of thead columns
-$table.find('thead tr').children().each(function(i, v) {
+/*$table.find('thead tr').children().each(function(i, v) {
     $(v).width(colWidth[i]);
-});    
+});    */
+
+
 
 	Json(json);
+
+	$('#search').instaFilta({
+    targets: '.s'
+	});
+
+	$("th").click(function(){
+		if($(this).hasClass("header")){
+			$(".i").addClass("esconder");
+			if($(this).hasClass("headerSortDown")){
+				($(this).children().first().removeClass("esconder"));
+			}else{
+				($(this).children().last().removeClass("esconder"));
+			}
+		}
+	});
 
 	$(document).on("click",".filled-in",function(){
 		var id = $(this).attr("data-obj");
@@ -81,16 +129,18 @@ $table.find('thead tr').children().each(function(i, v) {
 		}
 		print();
 	});
+	$("#table").tablesorter();
 });
 
 function Json(jsonx) {	/*FUNCION QUE MUESTRA EL HORARIO A PARTIR DE UN JSON*/
 	jsonx.forEach(function(item,i){// Version sin handlebars
-		var line='<tr class="tr"><td>';
-    line += item.facultad + "</td><td>";
-		line += item.asignatura + "</td><td>";
-		line += item.seccion + "</td><td>";
-		line += item.profesor + "</td><td>";
-		line += item.horas + "</td><td>";
+		var line='<tr class="tr s"><td class="cd2">';
+    line += item.facultad + '</td><td class="cd2">';
+		line += item.asignatura + '</td><td class="cd2">';
+		line += item.codigo + '</td><td class="cd2">';
+		line += item.seccion + '</td><td class="cd2">';
+		line += item.profesor + '</td><td class="cd2">';
+		line += item.horas + '</td><td>';
 		var horario = jsonx[i].horario
 		horario.forEach(function(item2,i2){
 			line += '<div class="chip">' + item2.dia + ": " + item2.hora + " " + item2.salon + '</div>';

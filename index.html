@@ -11,6 +11,15 @@
 <style type="text/css" media="screen">
 	.cd{
 		width: 10%;
+		cursor: pointer;
+	}
+	.cd2{
+		width: 8%;
+		text-align: center;
+	}
+
+	.x{
+		width: 12%;
 	}
 	
 	.tr:hover { 
@@ -19,32 +28,56 @@
 
 	.gy{
 		background-color: greenyellow;
+    width: 91px;
 	}
 
 	.er{
 		background-color: red;
 	}
 
+	.i{
+		float: right;
+	}
+
 thead, tbody {display: block;}
 tbody {
-  height: 300px;
-  overflow-y: scroll;
-  overflow-x: hidden;
+  height: 300px!important;
+  overflow-y: scroll!important;
+  overflow-x: hidden!important;
 }
+
+#search{
+	width: 150px;
+}
+
+.esconder{
+	display: none;
+}
+
 </style>
 <body>
 <h1 class="animated bounce" style="text-align: center;">Horario-ULA</h1>
+
 <div class="container">
+	
 	<div class="row">
-		<table class="col s12">
+		<div class="input-field" >
+		  <input id="search" type="text" class="validate" width="100">
+		  <label for="search">Busqué</label>
+		</div>	
+	</div>
+
+	<div class="row">
+		<table class="col s12" id="table">
 			<thead class="thead">
 				<tr>
-					<th class="cd">Facultad</th>
-					<th class="cd">Asignatura</th>
-					<th class="cd">Seccion</th>
-					<th class="cd">Profesor</th>
-					<th class="cd">Horas</th>
-					<th>Horario</th>
+					<th class="cd">Facultad <img src="down.svg" class="i"><img src="up.svg" class="esconder i"></th>
+					<th class="cd">Asignatura <img src="down.svg" class="esconder i"><img src="up.svg" class="esconder i"></th>
+					<th class="cd">Codigo <img src="down.svg" class="esconder i"><img src="up.svg" class="esconder i"></th>
+					<th class="cd">Seccion <img src="down.svg" class="esconder i"><img src="up.svg" class="esconder i"></th>
+					<th class="cd">Profesor <img src="down.svg" class="esconder i"><img src="up.svg" class="esconder i"></th>
+					<th class="cd">Horas <img src="down.svg" class="esconder i"><img src="up.svg" class="esconder i"></th>
+					<th style="cursor: pointer;width: 30%">Horario</th>
 					<th><p>
       <input type="checkbox" class="filled-in" id="filled-in-box" checked="checked" disabled />
       <label for="filled-in-box"></label>
@@ -60,114 +93,114 @@ tbody {
 		<table class="col s12">
 			<thead>
 				<tr>
-					<th >Hora</th>
-					<th >LUNES</th>
-					<th >MARTES</th>
-					<th >MIERCOLES</th>
-					<th >JUEVES</th>
-					<th >VIERNES</th>
-					<th>SABADO</th>
+					<th class="x">Hora</th>
+					<th class="x">LUNES</th>
+					<th class="x">MARTES</th>
+					<th class="x">MIERCOLES</th>
+					<th class="x">JUEVES</th>
+					<th class="x">VIERNES</th>
+					<th class="x">SABADO</th>
 				</tr>
 			</thead>
 			<tbody id="tb2">
 			<tr>
-				<td>7-8am</td>
-				<td id="LUN_7-8" class="td"></td>
-				<td id="MAR_7-8" class="td"></td>
-				<td id="MIE_7-8" class="td"></td>
-				<td id="JUE_7-8" class="td"></td>
-				<td id="VIE_7-8" class="td"></td>
-				<td id="SAB_7-8" class="td"></td>
+				<td class="x">7-8am</td>
+				<td id="LUN_7-8" class="td x"></td>
+				<td id="MAR_7-8" class="td x"></td>
+				<td id="MIE_7-8" class="td x"></td>
+				<td id="JUE_7-8" class="td x"></td>
+				<td id="VIE_7-8" class="td x"></td>
+				<td id="SAB_7-8" class="td x"></td>
 			</tr>
 			<tr>
-				<td>8-9am</td>
-				<td id="LUN_8-9" class="td"></td>
-				<td id="MAR_8-9" class="td"></td>
-				<td id="MIE_8-9" class="td"></td>
-				<td id="JUE_8-9" class="td"></td>
-				<td id="VIE_8-9" class="td"></td>
-				<td id="SAB_8-9" class="td"></td>
+				<td class="x">8-9am</td>
+				<td id="LUN_8-9" class="td x"></td>
+				<td id="MAR_8-9" class="td x"></td>
+				<td id="MIE_8-9" class="td x"></td>
+				<td id="JUE_8-9" class="td x"></td>
+				<td id="VIE_8-9" class="td x"></td>
+				<td id="SAB_8-9" class="td x"></td>
 			</tr>
 			<tr>
-				<td>9-10am</td>
-				<td id="LUN_9-10" class="td"></td>
-				<td id="MAR_9-10" class="td"></td>
-				<td id="MIE_9-10" class="td"></td>
-				<td id="JUE_9-10" class="td"></td>
-				<td id="VIE_9-10" class="td"></td>
-				<td id="SAB_9-10" class="td"></td>
+				<td class="x">9-10am</td>
+				<td id="LUN_9-10" class="td x"></td>
+				<td id="MAR_9-10" class="td x"></td>
+				<td id="MIE_9-10" class="td x"></td>
+				<td id="JUE_9-10" class="td x"></td>
+				<td id="VIE_9-10" class="td x"></td>
+				<td id="SAB_9-10" class="td x"></td>
 			</tr>
 			<tr>
-				<td>10-11am</td>
-				<td id="LUN_10-11" class="td"></td>
-				<td id="MAR_10-11" class="td"></td>
-				<td id="MIE_10-11" class="td"></td>
-				<td id="JUE_10-11" class="td"></td>
-				<td id="VIE_10-11" class="td"></td>
-				<td id="SAB_10-11" class="td"></td>
+				<td class="x">10-11am</td>
+				<td id="LUN_10-11" class="td x"></td>
+				<td id="MAR_10-11" class="td x"></td>
+				<td id="MIE_10-11" class="td x"></td>
+				<td id="JUE_10-11" class="td x"></td>
+				<td id="VIE_10-11" class="td x"></td>
+				<td id="SAB_10-11" class="td x"></td>
 			</tr>
 			<tr>
-				<td>11-12am</td>
-				<td id="LUN_11-12" class="td"></td>
-				<td id="MAR_11-12" class="td"></td>
-				<td id="MIE_11-12" class="td"></td>
-				<td id="JUE_11-12" class="td"></td>
-				<td id="VIE_11-12" class="td"></td>
-				<td id="SAB_11-12" class="td"></td>
+				<td class="x">11-12am</td>
+				<td id="LUN_11-12" class="td x"></td>
+				<td id="MAR_11-12" class="td x"></td>
+				<td id="MIE_11-12" class="td x"></td>
+				<td id="JUE_11-12" class="td x"></td>
+				<td id="VIE_11-12" class="td x"></td>
+				<td id="SAB_11-12" class="td x"></td>
 			</tr>
 			<tr>
-				<td>12-1pm</td>
-				<td id="LUN_12-1" class="td"></td>
-				<td id="MAR_12-1" class="td"></td>
-				<td id="MIE_12-1" class="td"></td>
-				<td id="JUE_12-1" class="td"></td>
-				<td id="VIE_12-1" class="td"></td>
-				<td id="SAB_12-1" class="td"></td>
+				<td class="x">12-1pm</td>
+				<td id="LUN_12-1" class="td x"></td>
+				<td id="MAR_12-1" class="td x"></td>
+				<td id="MIE_12-1" class="td x"></td>
+				<td id="JUE_12-1" class="td x"></td>
+				<td id="VIE_12-1" class="td x"></td>
+				<td id="SAB_12-1" class="td x"></td>
 			</tr>
 			<tr>
-				<td>1-2pm</td>
-				<td id="LUN_1-2" class="td"></td>
-				<td id="MAR_1-2" class="td"></td>
-				<td id="MIE_1-2" class="td"></td>
-				<td id="JUE_1-2" class="td"></td>
-				<td id="VIE_1-2" class="td"></td>
-				<td id="SAB_1-2" class="td"></td>
+				<td class="x">1-2pm</td>
+				<td id="LUN_1-2" class="td x"></td>
+				<td id="MAR_1-2" class="td x"></td>
+				<td id="MIE_1-2" class="td x"></td>
+				<td id="JUE_1-2" class="td x"></td>
+				<td id="VIE_1-2" class="td x"></td>
+				<td id="SAB_1-2" class="td x"></td>
 			</tr>
 			<tr>
-				<td>2-3pm</td>
-				<td id="LUN_2-3" class="td"></td>
-				<td id="MAR_2-3" class="td"></td>
-				<td id="MIE_2-3" class="td"></td>
-				<td id="JUE_2-3" class="td"></td>
-				<td id="VIE_2-3" class="td"></td>
-				<td id="SAB_2-3" class="td"></td>
+				<td class="x">2-3pm</td>
+				<td id="LUN_2-3" class="td x"></td>
+				<td id="MAR_2-3" class="td x"></td>
+				<td id="MIE_2-3" class="td x"></td>
+				<td id="JUE_2-3" class="td x"></td>
+				<td id="VIE_2-3" class="td x"></td>
+				<td id="SAB_2-3" class="td x"></td>
 			</tr>
 			<tr>
-				<td>3-4pm</td>
-				<td id="LUN_3-4" class="td"></td>
-				<td id="MAR_3-4" class="td"></td>
-				<td id="MIE_3-4" class="td"></td>
-				<td id="JUE_3-4" class="td"></td>
-				<td id="VIE_3-4" class="td"></td>
-				<td id="SAB_3-4" class="td"></td>
+				<td class="x">3-4pm</td>
+				<td id="LUN_3-4" class="td x"></td>
+				<td id="MAR_3-4" class="td x"></td>
+				<td id="MIE_3-4" class="td x"></td>
+				<td id="JUE_3-4" class="td x"></td>
+				<td id="VIE_3-4" class="td x"></td>
+				<td id="SAB_3-4" class="td x"></td>
 			</tr>
 			<tr>
-				<td>4-5pm</td>
-				<td id="LUN_4-5" class="td"></td>
-				<td id="MAR_4-5" class="td"></td>
-				<td id="MIE_4-5" class="td"></td>
-				<td id="JUE_4-5" class="td"></td>
-				<td id="VIE_4-5" class="td"></td>
-				<td id="SAB_4-5" class="td"></td>
+				<td class="x">4-5pm</td>
+				<td id="LUN_4-5" class="td x"></td>
+				<td id="MAR_4-5" class="td x"></td>
+				<td id="MIE_4-5" class="td x"></td>
+				<td id="JUE_4-5" class="td x"></td>
+				<td id="VIE_4-5" class="td x"></td>
+				<td id="SAB_4-5" class="td x"></td>
 			</tr>
 			<tr>
-				<td>5-6pm</td>
-				<td id="LUN_5-6" class="td"></td>
-				<td id="MAR_5-6" class="td"></td>
-				<td id="MIE_5-6" class="td"></td>
-				<td id="JUE_5-6" class="td"></td>
-				<td id="VIE_5-6" class="td"></td>
-				<td id="SAB_5-6" class="td"></td>
+				<td class="x">5-6pm</td>
+				<td id="LUN_5-6" class="td x"></td>
+				<td id="MAR_5-6" class="td x"></td>
+				<td id="MIE_5-6" class="td x"></td>
+				<td id="JUE_5-6" class="td x"></td>
+				<td id="VIE_5-6" class="td x"></td>
+				<td id="SAB_5-6" class="td x"></td>
 			</tr>
 			
 			</tbody>
@@ -179,6 +212,8 @@ tbody {
 	<script src="js/jquery-3.1.1.min.js"></script>
   <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
   <script src="lodash/lodash.js" ></script>
+	<script type="text/javascript" src="js/tablesorter-master/jquery.tablesorter.js"></script> 
+	<script src="js/instafilta.js" ></script>
   <script src="js/index.js" ></script>
 </body>
 </html>
